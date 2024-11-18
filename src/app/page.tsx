@@ -1,0 +1,40 @@
+import { Button } from "@/components/ui/button";
+import { ChevronRightIcon } from "lucide-react";
+import Link from "next/link";
+
+export default function Home() {
+    return (
+        <main className="container px-6 py-6 sm:px-12 lg:px-20">
+            <div className="grid justify-items-center gap-4 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-20">
+                <div className="max-w-xl">
+                    <h1 className="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight tracking-wide">
+                        Hey! I'm Laurent,
+                        <br />a
+                        <span className="bg-gradient-to-br from-red via-lavender/80 to-mauve bg-clip-text text-transparent">
+                            {" fullstack "}
+                        </span>
+                        dev
+                    </h1>
+
+                    <p className="mt-8 text-lg text-gray-800 dark:text-gray-400">
+                        I enjoy learning new frameworks and staying on top of the tech wave. Feel free to look around,
+                        and don't hesitate to contact me if you want!
+                    </p>
+
+                    <div className="mt-7 grid w-full gap-3 sm:inline-flex">
+                        <Button size="lg" className="relative group pr-12" asChild>
+                            <Link href="/projects">
+                                View my projects
+                                <ChevronRightIcon className="absolute right-6 group-hover:right-4 transition-[right]" />
+                            </Link>
+                        </Button>
+
+                        <Button size="lg" variant="outline" asChild>
+                            <Link href="/about">Learn more about me</Link>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
+}
