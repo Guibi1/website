@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ChevronRightIcon } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChevronRightIcon, GithubIcon } from "lucide-react";
 import Link from "next/link";
+import GitHubCalendar from "react-github-calendar";
 
 export default function Home() {
     return (
-        <main className="container px-6 py-6 sm:px-12 lg:px-20">
+        <main className="container flex-1 flex flex-col justify-between px-4 py-8 sm:px-12 lg:px-20">
             <div className="grid justify-items-center gap-4 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-20">
                 <div className="max-w-xl">
                     <h1 className="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight tracking-wide">
@@ -35,6 +37,29 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
+            <section className="mt-16 xl:px-16">
+                <Card className="mx-auto max-w-5xl">
+                    <CardHeader>
+                        <CardTitle className="inline-flex gap-4 items-center">
+                            <GithubIcon />
+                            Contributions
+                        </CardTitle>
+                    </CardHeader>
+
+                    <CardContent className="flex pb-8">
+                        <GitHubCalendar
+                            username="Guibi1"
+                            colorScheme="dark"
+                            theme={{
+                                dark: ["rgba(245, 194, 231, 0)", "rgb(203, 166, 247)"],
+                            }}
+                            style={{ marginInline: "auto" }}
+                            hideTotalCount
+                        />
+                    </CardContent>
+                </Card>
+            </section>
         </main>
     );
 }
