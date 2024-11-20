@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { fetchCalendarData } from "@/lib/utils";
 import { ChevronRightIcon, GithubIcon } from "lucide-react";
 import Link from "next/link";
-import GitHubCalendar from "react-github-calendar";
+import Calendar from "react-activity-calendar";
 
-export default function Home() {
+export default async function Home() {
+    const contributions = await fetchCalendarData();
+
     return (
         <main className="container flex-1 flex flex-col justify-between px-4 py-8 sm:px-12 lg:px-20">
             <div className="grid justify-items-center gap-4 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-20">
@@ -48,14 +51,13 @@ export default function Home() {
                     </CardHeader>
 
                     <CardContent className="flex pb-8">
-                        <GitHubCalendar
-                            username="Guibi1"
+                        <Calendar
+                            style={{ marginInline: "auto" }}
+                            data={contributions}
                             colorScheme="dark"
                             theme={{
                                 dark: ["rgba(245, 194, 231, 0)", "rgb(203, 166, 247)"],
                             }}
-                            style={{ marginInline: "auto" }}
-                            hideTotalCount
                         />
                     </CardContent>
                 </Card>
