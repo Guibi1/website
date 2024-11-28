@@ -70,7 +70,7 @@ export default function Page() {
                             <CardDescription>{project.description}</CardDescription>
                         </CardHeader>
 
-                        <CardContent className="flex-grow">
+                        <CardContent className="grow">
                             <div className="flex flex-wrap gap-2">
                                 {project.tags.map((tag) => (
                                     <span

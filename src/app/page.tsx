@@ -1,13 +1,9 @@
+import Contributions from "@/components/Contributions";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { fetchCalendarData } from "@/lib/utils";
-import { ChevronRightIcon, GithubIcon } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
-import Calendar from "react-activity-calendar";
 
-export default async function Home() {
-    const contributions = await fetchCalendarData();
-
+export default function Home() {
     return (
         <main className="container flex-1 flex flex-col justify-between px-4 py-8 sm:px-12 lg:px-20">
             <div className="grid justify-items-center gap-4 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-20">
@@ -15,7 +11,7 @@ export default async function Home() {
                     <h1 className="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight tracking-wide">
                         Hey! I'm Laurent,
                         <br />a
-                        <span className="bg-gradient-to-br from-red via-lavender/80 to-mauve bg-clip-text text-transparent">
+                        <span className="bg-linear-to-br from-red via-primary to-lavender/80 bg-clip-text text-transparent">
                             {" fullstack "}
                         </span>
                         dev
@@ -42,25 +38,7 @@ export default async function Home() {
             </div>
 
             <section className="mt-16 xl:px-16">
-                <Card className="mx-auto max-w-5xl">
-                    <CardHeader>
-                        <CardTitle className="inline-flex gap-4 items-center">
-                            <GithubIcon />
-                            Contributions
-                        </CardTitle>
-                    </CardHeader>
-
-                    <CardContent className="flex pb-8">
-                        <Calendar
-                            style={{ marginInline: "auto" }}
-                            data={contributions}
-                            colorScheme="dark"
-                            theme={{
-                                dark: ["rgba(245, 194, 231, 0)", "rgb(203, 166, 247)"],
-                            }}
-                        />
-                    </CardContent>
-                </Card>
+                <Contributions />
             </section>
         </main>
     );

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={`${font.className} antialiased dark h-dvh flex flex-col`}>
+            <body className={`${font.className} bg-background text-foreground antialiased h-dvh flex flex-col`}>
                 <Nav />
 
                 {children}
