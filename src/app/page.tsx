@@ -1,4 +1,5 @@
 import Contributions from "@/components/Contributions";
+import MetaBalls from "@/components/MetaBalls";
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
@@ -34,6 +35,19 @@ export default function Home() {
                             <Link href="/about">Learn more about me</Link>
                         </Button>
                     </div>
+                </div>
+
+                <div className="size-full hidden lg:grid max-w-xl aspect-square">
+                    <MetaBalls
+                        color="#cba6f7"
+                        cursorBallColor="#cba6f7"
+                        cursorBallSize={1}
+                        ballCount={18}
+                        animationSize={24}
+                        hoverSmoothness={0.01}
+                        clumpFactor={1}
+                        speed={0.2}
+                    />
                 </div>
             </div>
 
