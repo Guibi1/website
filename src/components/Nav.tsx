@@ -17,7 +17,7 @@ export default function Nav() {
                 </Button>
 
                 <Button variant="ghost" asChild>
-                    <Link href="https://github.com/Guibi1" target="_blank">
+                    <Link href="https://github.com/Guibi1" title="github account" target="_blank">
                         <GithubIcon />
                     </Link>
                 </Button>
