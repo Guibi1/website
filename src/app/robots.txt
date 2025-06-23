@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow:
+
+Sitemap: https://guibi.dev/sitemap.xml

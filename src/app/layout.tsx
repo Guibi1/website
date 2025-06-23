@@ -7,6 +7,7 @@ const font = Fredoka({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Guibi.dev",
+    description: "Guibi.dev is my personal website, where you can find information about me and my projects.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
