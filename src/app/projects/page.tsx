@@ -24,6 +24,13 @@ const projects: Project[] = [
         githubUrl: "https://github.com/Guibi1/maki",
     },
     {
+        title: "Pumpkin",
+        description:
+            "A Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience.",
+        tags: ["Rust", "Game Server"],
+        githubUrl: "https://github.com/Pumpkin-MC/Pumpkin",
+    },
+    {
         title: "Pen",
         description:
             "An easy-to-use tool for effortlessly managing virtual environments with specific Python versions.",
@@ -48,7 +55,6 @@ const projects: Project[] = [
         description: "A handmade website to show-off what I've built.",
         tags: ["Next.js", "TypeScript"],
         githubUrl: "https://github.com/Guibi1/website",
-        liveUrl: "/",
     },
 ];
 
@@ -57,9 +63,7 @@ export default function Page() {
         <main className="container px-4 py-8">
             <header className="mb-12">
                 <h1 className="text-4xl font-bold mb-2 text-primary">My Coding Projects</h1>
-                <p className="text-xl text-muted-foreground">
-                    A showcase of my recent work and experiments in web development
-                </p>
+                <p className="text-xl text-muted-foreground">Here's what I'm working on</p>
             </header>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -93,10 +97,10 @@ export default function Page() {
 
                             {project.liveUrl && (
                                 <Button asChild>
-                                    <Link href={project.liveUrl}>
+                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                        View
                                         <ExternalLinkIcon />
-                                        View more
-                                    </Link>
+                                    </a>
                                 </Button>
                             )}
                         </CardFooter>
