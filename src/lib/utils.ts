@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export async function fetchCalendarData(): Promise<Activity[]> {
     const response = await fetch("https://github-contributions-api.jogruber.de/v4/Guibi1?y=last", {
         cache: "force-cache",
-        next: { revalidate: 3600 },
+        next: { revalidate: 86400 },
     });
     const data = await response.json();
 
