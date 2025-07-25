@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLinkIcon, GithubIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
     title: "Projects • Guibi.dev",
@@ -62,8 +62,8 @@ export default function Page() {
     return (
         <main className="container px-4 py-8">
             <header className="mb-12">
-                <h1 className="text-4xl font-bold mb-2 text-primary">My Coding Projects</h1>
-                <p className="text-xl text-muted-foreground">Here's what I'm working on</p>
+                <h1 className="mb-2 font-bold text-4xl text-primary">My Coding Projects</h1>
+                <p className="text-muted-foreground text-xl">Here's what I'm working on</p>
             </header>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -79,7 +79,7 @@ export default function Page() {
                                 {project.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="px-2 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full"
+                                        className="rounded-full bg-secondary px-2 py-1 font-medium text-secondary-foreground text-xs"
                                     >
                                         {tag}
                                     </span>

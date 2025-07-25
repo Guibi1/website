@@ -1,40 +1,43 @@
 {
-  "name": "guibi.dev",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@catppuccin/tailwindcss": "^0.1.6",
-    "@octokit/rest": "^22.0.0",
-    "@radix-ui/react-slot": "^1.2.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.460.0",
-    "next": "^15.3.1",
-    "ogl": "^1.0.11",
-    "react": "^19.1.0",
-    "react-activity-calendar": "^2.7.10",
-    "react-dom": "^19.1.0",
-    "react-timeago": "^8.2.0",
-    "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@tailwindcss/postcss": "^4.1.4",
-    "@types/node": "^20.17.30",
-    "@types/react": "^18.3.20",
-    "@types/react-dom": "^18.3.6",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
-    "typescript": "^5.8.3"
-  },
-  "trustedDependencies": [
-    "@biomejs/biome"
-  ]
+    "name": "guibi.dev",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "check": "biome check .",
+        "check:unsafe": "biome check --write --unsafe .",
+        "check:write": "biome check --write .",
+        "ui": "pnpm dlx shadcn@latest"
+    },
+    "dependencies": {
+        "@catppuccin/tailwindcss": "^0.1.6",
+        "@octokit/rest": "^22.0.0",
+        "@radix-ui/react-slot": "^1.2.3",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.460.0",
+        "next": "^15.4.4",
+        "ogl": "^1.0.11",
+        "react": "^19.1.0",
+        "react-activity-calendar": "^2.7.13",
+        "react-dom": "^19.1.0",
+        "react-timeago": "^8.2.0",
+        "tailwind-merge": "^2.6.0",
+        "tailwindcss-animate": "^1.0.7"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.1.2",
+        "@tailwindcss/postcss": "^4.1.11",
+        "@types/node": "^20.19.9",
+        "@types/react": "^18.3.23",
+        "@types/react-dom": "^18.3.7",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^4.1.11",
+        "typescript": "^5.8.3"
+    },
+    "trustedDependencies": [
+        "@biomejs/biome"
+    ]
 }

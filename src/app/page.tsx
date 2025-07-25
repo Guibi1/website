@@ -1,16 +1,16 @@
+import { ChevronRightIcon } from "lucide-react";
+import Link from "next/link";
 import Contributions from "@/components/Contributions";
 import MetaBalls from "@/components/MetaBalls";
 import PullRequestList from "@/components/PullRequestList";
 import { Button } from "@/components/ui/button";
-import { ChevronRightIcon } from "lucide-react";
-import Link from "next/link";
 
 export default function Home() {
     return (
-        <main className="container flex-1 flex flex-col justify-between px-4 py-8 sm:px-12 lg:px-20">
+        <main className="container flex flex-1 flex-col justify-between px-4 py-8 sm:px-12 lg:px-20">
             <div className="grid justify-items-center gap-4 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-20">
                 <div className="max-w-xl">
-                    <h1 className="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight tracking-wide">
+                    <h1 className="block font-bold text-3xl text-gray-800 tracking-wide sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
                         Hey! I'm Laurent,
                         <br />a
                         <span className="bg-linear-to-br from-red via-primary to-lavender/80 bg-clip-text text-transparent">
@@ -19,16 +19,16 @@ export default function Home() {
                         dev
                     </h1>
 
-                    <p className="mt-8 text-lg text-gray-800 dark:text-gray-400">
+                    <p className="mt-8 text-gray-800 text-lg dark:text-gray-400">
                         I enjoy learning new frameworks and staying on top of the tech wave. Feel free to look around,
                         and don't hesitate to contact me if you want!
                     </p>
 
                     <div className="mt-7 grid w-full gap-3 sm:inline-flex">
-                        <Button size="lg" className="relative group pr-12" asChild>
+                        <Button size="lg" className="group relative pr-12" asChild>
                             <Link href="/projects">
                                 View my projects
-                                <ChevronRightIcon className="absolute right-6 group-hover:right-4 transition-[right]" />
+                                <ChevronRightIcon className="absolute right-6 transition-[right] group-hover:right-4" />
                             </Link>
                         </Button>
 
@@ -38,7 +38,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="size-full hidden lg:grid max-w-xl aspect-square">
+                <div className="hidden aspect-square size-full max-w-xl lg:grid">
                     <MetaBalls
                         color="#cba6f7"
                         cursorBallColor="#cba6f7"

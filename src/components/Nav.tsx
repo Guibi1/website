@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export default function Nav() {
     return (
-        <nav className="container px-4 py-8 md:h-20 flex items-center justify-between gap-4">
+        <nav className="container flex items-center justify-between gap-4 px-4 py-8 md:h-20">
             <Link href="/" className="text-xl">
                 Guibi.dev
             </Link>

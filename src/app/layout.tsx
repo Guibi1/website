@@ -1,6 +1,6 @@
-import Nav from "@/components/Nav";
 import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
+import Nav from "@/components/Nav";
 import "./globals.css";
 
 const font = Fredoka({ subsets: ["latin"] });
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={`${font.className} bg-background text-foreground antialiased h-dvh flex flex-col`}>
+            <body className={`${font.className} flex h-dvh flex-col bg-background text-foreground antialiased`}>
                 <Nav />
 
                 {children}

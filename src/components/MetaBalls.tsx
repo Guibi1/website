@@ -1,7 +1,6 @@
 "use client";
 
 import { Camera, Mesh, Program, Renderer, Transform, Triangle, Vec3 } from "ogl";
-import type React from "react";
 import { useEffect, useRef } from "react";
 
 type MetaBallsProps = {
@@ -294,5 +293,5 @@ export default function MetaBalls({
         };
     }, [color, cursorBallColor, speed, hoverSmoothness, animationSize, ballCount, clumpFactor, cursorBallSize]);
 
-    return <div ref={containerRef} className="size-full relative radial-opacity-mask" />;
+    return <div ref={containerRef} className="radial-opacity-mask relative size-full" />;
 }
