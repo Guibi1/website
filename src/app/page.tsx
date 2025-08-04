@@ -2,7 +2,6 @@ import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import Contributions from "@/components/Contributions";
 import MetaBalls from "@/components/MetaBalls";
-import PullRequestList from "@/components/PullRequestList";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {

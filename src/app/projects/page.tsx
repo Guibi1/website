@@ -31,11 +31,11 @@ const projects: Project[] = [
         githubUrl: "https://github.com/Pumpkin-MC/Pumpkin",
     },
     {
-        title: "Pen",
+        title: "FireWall",
         description:
-            "An easy-to-use tool for effortlessly managing virtual environments with specific Python versions.",
-        tags: ["Rust", "PyPI"],
-        githubUrl: "https://github.com/Guibi1/pen",
+            "A 2D battle royale game where player written bots compete against each other in a shrinking arena. Used in the 2025 JDIS Games competition.",
+        tags: ["Rust", "Game Server", "React"],
+        githubUrl: "https://github.com/JDIS/jdis-games-2025",
     },
     {
         title: "SvelteKit TypeSafe API",
@@ -89,7 +89,7 @@ export default function Page() {
 
                         <CardFooter className="flex justify-between">
                             <Button variant="outline" asChild>
-                                <Link href={project.githubUrl}>
+                                <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                                     <GithubIcon />
                                     Code
                                 </Link>

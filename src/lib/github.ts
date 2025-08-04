@@ -11,10 +11,6 @@ export type PullRequest = {
 };
 
 export async function fetchPullRequests(repo: string, openedBy: string): Promise<PullRequest[]> {
-    await new Promise((res) => {
-        setTimeout(res, 1000);
-    });
-
     const octokit = new Octokit({
         auth: process.env.GITHUB_PAT,
         request: {
