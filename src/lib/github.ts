@@ -7,6 +7,7 @@ export type PullRequest = {
     url: string;
     draft: boolean;
     openedAt: Date;
+    closedAt?: Date;
     mergedAt?: Date;
 };
 
@@ -42,6 +43,7 @@ export async function fetchPullRequests(repo: string, openedBy: string): Promise
             url: pr.html_url,
             draft: pr.draft ?? false,
             openedAt: new Date(pr.created_at),
+            closedAt: pr.closed_at ? new Date(pr.closed_at) : undefined,
             mergedAt: pr.pull_request?.merged_at ? new Date(pr.pull_request.merged_at) : undefined,
         }))
         .sort((a, b) => (a.mergedAt ? (b.mergedAt ? 0 : 1) : b.mergedAt ? -1 : 0));
