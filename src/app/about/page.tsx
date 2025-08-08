@@ -21,7 +21,7 @@ export default function Page() {
                 {jobs.map((job, i) => (
                     <Card
                         className="mb-4 animate-fade-in-up break-inside-avoid"
-                        style={{ animationDelay: `${(i + 2) * 100}ms` }}
+                        style={{ animationDelay: `${(i + 3) * 100}ms` }}
                         key={job.description}
                     >
                         <CardHeader className="pb-4">

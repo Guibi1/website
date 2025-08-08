@@ -22,7 +22,7 @@ export default function Page() {
                 {projects.map((project, i) => (
                     <Card
                         className="mb-4 animate-fade-in-up break-inside-avoid"
-                        style={{ animationDelay: `${(i + 2) * 100}ms` }}
+                        style={{ animationDelay: `${(i + 3) * 100}ms` }}
                         key={project.repo}
                     >
                         <CardHeader>
