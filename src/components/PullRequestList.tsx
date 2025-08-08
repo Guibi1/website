@@ -1,21 +1,22 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { Suspense, useMemo } from "react";
+import TimeAgo from "@/components/TimeAgo";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Skeleton } from "@/components/ui/skeleton";
 import { fetchPullRequests } from "@/lib/github";
-import TimeAgo from "./TimeAgo";
-import { Button } from "./ui/button";
-import { Skeleton } from "./ui/skeleton";
 
 export default function PullRequestList({ repo }: { repo: string }) {
     const prs = useMemo(() => fetchPullRequests(repo, "Guibi1"), [repo]);
 
     return (
-        <div className="max-h-80 overflow-y-scroll">
+        <ScrollArea className="h-60">
             <Suspense fallback={<PullRequestListSkeleton />}>
                 {prs.then((prs) =>
                     prs.length === 0 ? (
                         <div className="py-4 text-center text-muted-foreground">No pull requests found.</div>
                     ) : (
-                        <ul className="flex flex-col divide-y divide-muted">
+                        <ul className="flex min-h-0 flex-col divide-y divide-muted">
                             {prs.map((pr) => (
                                 <li key={pr.id}>
                                     <a
@@ -47,7 +48,7 @@ export default function PullRequestList({ repo }: { repo: string }) {
                     ),
                 )}
             </Suspense>
-        </div>
+        </ScrollArea>
     );
 }
 
