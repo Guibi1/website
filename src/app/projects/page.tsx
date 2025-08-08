@@ -32,7 +32,7 @@ export default function Page() {
                                 <div className="space-y-2 pb-4">
                                     <Separator />
 
-                                    <div className="inline-flex size-lg items-center gap-2">
+                                    <div className="ml-2 inline-flex size-lg items-center gap-2">
                                         <GitPullRequestArrowIcon size={16} />
                                         My Contributions
                                     </div>
@@ -105,6 +105,12 @@ const projects: {
         description: "A Vite plugin that adds type safety to SvelteKit's server endpoints.",
         tags: ["SvelteKit", "TypeScript"],
         repo: "Guibi1/SvelteKit-TypeSafe-API",
+    },
+    {
+        title: "SherbyRide",
+        description: "A website to facilitate carpool planning between students.",
+        tags: ["Next.js", "Java", "PostgreSQL"],
+        repo: "Guibi1/SherbyRide",
     },
     {
         title: "Univox",
