@@ -136,11 +136,17 @@ export default function MetaBalls({
 
         //* OpenGL scene
         const dpr = 1;
-        const renderer = new Renderer({
-            dpr,
-            alpha: true,
-            premultipliedAlpha: false,
-        });
+        let renderer: Renderer;
+        try {
+            renderer = new Renderer({
+                dpr,
+                alpha: true,
+                premultipliedAlpha: false,
+            });
+        } catch (error) {
+            console.error("Error initializing renderer:", error);
+            return;
+        }
         const gl = renderer.gl;
         gl.clearColor(0, 0, 0, 0);
         container.appendChild(gl.canvas);
