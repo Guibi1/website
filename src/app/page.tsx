@@ -46,7 +46,7 @@ export default function Home() {
                         cursorBallSize={1}
                         ballCount={18}
                         animationSize={24}
-                        hoverSmoothness={0.04}
+                        hoverSmoothness={0.02}
                         clumpFactor={1}
                         speed={0.2}
                     />
