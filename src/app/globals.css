@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
+@plugin 'tailwindcss-animate';
 @plugin '@catppuccin/tailwindcss' {
+    /* biome-ignore lint/correctness/noUnknownProperty: Plugin specific configuration */
     defaultflavour: "mocha";
 }
-@plugin 'tailwindcss-animate';
 
 @theme {
     --color-red: hsl(var(--red));
@@ -139,5 +140,45 @@
 
     .radial-opacity-mask {
         mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 80%);
+    }
+
+    /* Page entrance animations */
+    .animate-fade-in {
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: var(--tw-duration, 0.5s);
+        animation-delay: var(--tw-delay, 0s);
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .animate-fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation-name: fadeInUp;
+        animation-duration: var(--tw-duration, 0.5s);
+        animation-delay: var(--tw-delay, 0s);
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

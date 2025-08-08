@@ -75,13 +75,13 @@ uniform vec3 iMetaBalls[50]; // Precomputed: xy = position, z = radius
 uniform float iClumpFactor;
 out vec4 outColor;
 const float PI = 3.14159265359;
- 
+
 float getMetaBallValue(vec2 c, float r, vec2 p) {
     vec2 d = p - c;
     float dist2 = dot(d, d);
     return (r * r) / dist2;
 }
- 
+
 void main() {
     vec2 fc = gl_FragCoord.xy;
     float scale = iAnimationSize / iResolution.y;

@@ -60,11 +60,11 @@ function PullRequestListSkeleton() {
                 .map((k) => (
                     <li className="flex items-center justify-between p-2" key={k}>
                         <div className="flex grow flex-col gap-2 px-2">
-                            <Skeleton className="h-4 w-full max-w-72" />
+                            <Skeleton className="h-3 w-full max-w-72" />
                             <div className="flex items-center gap-2">
-                                <Skeleton className="h-4 w-10" />
+                                <Skeleton className="h-3 w-10" />
                                 <span>•</span>
-                                <Skeleton className="h-4 w-38" />
+                                <Skeleton className="h-3 w-38" />
                             </div>
                         </div>
 

@@ -13,14 +13,18 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <main className="container px-4 py-8">
-            <header className="mb-12">
+            <header className="mb-12 animate-fade-in-up">
                 <h1 className="mb-2 font-bold text-4xl text-primary">My Coding Projects</h1>
-                <p className="text-muted-foreground text-xl">Here's what I'm working on</p>
+                <p className="animate-fade-in text-muted-foreground text-xl delay-200">Here's what I'm working on</p>
             </header>
 
             <div className="columns-xs gap-4">
-                {projects.map((project) => (
-                    <Card className="mb-4 break-inside-avoid" key={project.repo}>
+                {projects.map((project, i) => (
+                    <Card
+                        className="mb-4 animate-fade-in-up break-inside-avoid"
+                        style={{ animationDelay: `${(i + 2) * 100}ms` }}
+                        key={project.repo}
+                    >
                         <CardHeader>
                             <CardTitle>{project.title}</CardTitle>
                         </CardHeader>
