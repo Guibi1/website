@@ -17,55 +17,93 @@ export default function Page() {
                 <p className="animate-fade-in text-muted-foreground text-xl delay-200">Once upon a time...</p>
             </header>
 
-            <div className="columns-xs gap-4">
-                {jobs.map((job, i) => (
-                    <Card
-                        className="mb-4 animate-fade-in-up break-inside-avoid"
-                        style={{ animationDelay: `${(i + 3) * 100}ms` }}
-                        key={job.description}
-                    >
-                        <CardHeader className="pb-4">
-                            <CardTitle>{job.title}</CardTitle>
-                            <CardDescription>{job.dates}</CardDescription>
-                        </CardHeader>
+            <section>
+                <h2 className="mb-4 animate-fade-in-up font-bold text-3xl text-primary delay-200">Languages</h2>
 
-                        <CardContent className="grow space-y-4">
-                            <Separator />
+                <div className="mb-12 grid gap-3 gap-x-8 md:grid-cols-2 lg:gap-1">
+                    {languages.map((lang, i) => (
+                        <div
+                            className="flex animate-fade-in-up flex-col gap-1 lg:flex-row lg:items-center lg:gap-4"
+                            style={{ animationDelay: `${250 + i * 25}ms` }}
+                            key={lang.name}
+                        >
+                            <div className="w-20 lg:text-right">{lang.name}</div>
 
-                            <div className="flex items-center justify-between gap-2">
-                                <div>
-                                    <div className="leading-none tracking-tight">At {job.at}</div>
-                                    <div className="text-muted-foreground text-sm">{job.info}</div>
+                            <div className="relative h-2 grow rounded-md bg-muted">
+                                <div
+                                    className="absolute inset-0 rounded-md bg-primary"
+                                    style={{ width: `${lang.percent}%` }}
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section>
+                <h2 className="mb-4 animate-fade-in-up font-bold text-3xl text-primary delay-500">Job experience</h2>
+
+                <div className="columns-xs gap-4">
+                    {jobs.map((job, i) => (
+                        <Card
+                            className="mb-4 animate-fade-in-up break-inside-avoid"
+                            style={{ animationDelay: `${(i + 6) * 100}ms` }}
+                            key={job.description}
+                        >
+                            <CardHeader className="pb-4">
+                                <CardTitle>{job.title}</CardTitle>
+                                <CardDescription>{job.dates}</CardDescription>
+                            </CardHeader>
+
+                            <CardContent className="grow space-y-4">
+                                <Separator />
+
+                                <div className="flex items-center justify-between gap-2">
+                                    <div>
+                                        <div className="leading-none tracking-tight">At {job.at}</div>
+                                        <div className="text-muted-foreground text-sm">{job.info}</div>
+                                    </div>
+
+                                    <Button variant="ghost" size="icon" asChild>
+                                        <Link href={job.website} target="_blank" rel="noopener noreferrer">
+                                            <GlobeIcon />
+                                        </Link>
+                                    </Button>
                                 </div>
 
-                                <Button variant="ghost" size="icon" asChild>
-                                    <Link href={job.website} target="_blank" rel="noopener noreferrer">
-                                        <GlobeIcon />
-                                    </Link>
-                                </Button>
-                            </div>
+                                <div>{job.description}</div>
+                            </CardContent>
 
-                            <div>{job.description}</div>
-                        </CardContent>
-
-                        <CardFooter>
-                            <div className="flex flex-wrap gap-2">
-                                {job.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="rounded-full bg-secondary px-2 py-1 font-medium text-secondary-foreground text-xs"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </CardFooter>
-                    </Card>
-                ))}
-            </div>
+                            <CardFooter>
+                                <div className="flex flex-wrap gap-2">
+                                    {job.tags.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="rounded-full bg-secondary px-2 py-1 font-medium text-secondary-foreground text-xs"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </CardFooter>
+                        </Card>
+                    ))}
+                </div>
+            </section>
         </main>
     );
 }
+
+const languages = [
+    { name: "TypeScript", percent: 100 },
+    { name: "HTML", percent: 100 },
+    { name: "Rust", percent: 95 },
+    { name: "SQL", percent: 90 },
+    { name: "C & C++", percent: 80 },
+    { name: "Python", percent: 70 },
+    { name: "Java", percent: 60 },
+    { name: "C#", percent: 55 },
+];
 
 const jobs: {
     at: string;
