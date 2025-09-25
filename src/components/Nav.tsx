@@ -1,5 +1,6 @@
 import { GithubIcon } from "lucide-react";
 import Link from "next/link";
+import BlueSkyIcon from "./BlueSkyIcon";
 import { Button } from "./ui/button";
 
 export default function Nav() {
@@ -10,17 +11,33 @@ export default function Nav() {
             </Link>
 
             <div className="flex items-center gap-4">
-                <Button variant="ghost" asChild>
-                    <Link href="/projects" className="text-lg">
-                        My projects
-                    </Link>
-                </Button>
+                <div className="flex items-center gap-2">
+                    <Button variant="ghost" asChild>
+                        <Link href="/about" className="text-lg">
+                            About me
+                        </Link>
+                    </Button>
 
-                <Button variant="ghost" asChild>
-                    <Link href="https://github.com/Guibi1" title="github account" target="_blank">
-                        <GithubIcon />
-                    </Link>
-                </Button>
+                    <Button variant="ghost" asChild>
+                        <Link href="/projects" className="text-lg">
+                            My projects
+                        </Link>
+                    </Button>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <Button variant="ghost" asChild>
+                        <Link href="https://bsky.app/profile/guibi.dev" title="bluesky account" target="_blank">
+                            <BlueSkyIcon />
+                        </Link>
+                    </Button>
+
+                    <Button variant="ghost" asChild>
+                        <Link href="https://github.com/Guibi1" title="github account" target="_blank">
+                            <GithubIcon />
+                        </Link>
+                    </Button>
+                </div>
             </div>
         </nav>
     );
