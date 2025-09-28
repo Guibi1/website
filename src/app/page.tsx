@@ -33,8 +33,11 @@ export default function Home() {
                             </Link>
                         </Button>
 
-                        <Button size="lg" variant="outline" asChild>
-                            <Link href="/about">Learn more about me</Link>
+                        <Button size="lg" className="group relative pr-12" variant="secondary" asChild>
+                            <Link href="/about">
+                                Learn more about me
+                                <ChevronRightIcon className="absolute right-6 transition-[right] group-hover:right-4" />
+                            </Link>
                         </Button>
                     </div>
                 </div>

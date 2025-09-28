@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "lucide-react";
-import { Suspense, useMemo } from "react";
+import { Suspense } from "react";
 import TimeAgo from "@/components/TimeAgo";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -7,46 +7,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { fetchPullRequests } from "@/lib/github";
 
 export default function PullRequestList({ repo }: { repo: string }) {
-    const prs = useMemo(() => fetchPullRequests(repo, "Guibi1"), [repo]);
-
     return (
         <ScrollArea className="h-60">
             <Suspense fallback={<PullRequestListSkeleton />}>
-                {prs.then((prs) =>
-                    prs.length === 0 ? (
-                        <div className="py-4 text-center text-muted-foreground">No pull requests found.</div>
-                    ) : (
-                        <ul className="flex min-h-0 flex-col divide-y divide-muted">
-                            {prs.map((pr) => (
-                                <li key={pr.id}>
-                                    <a
-                                        href={pr.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center justify-between rounded-md p-2 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring"
-                                    >
-                                        <div className="flex flex-col px-2">
-                                            <div>{pr.title}</div>
-
-                                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                                                <span>#{pr.number}</span>
-                                                <span>•</span>
-                                                <span>
-                                                    {pr.mergedAt ? "merged" : pr.closedAt ? "closed" : "opened"}
-                                                </span>
-                                                <TimeAgo date={pr.mergedAt ?? pr.closedAt ?? pr.openedAt} />
-                                            </div>
-                                        </div>
-
-                                        <Button variant="ghost" size="icon" disabled>
-                                            <ExternalLinkIcon />
-                                        </Button>
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    ),
-                )}
+                <PullRequestListData repo={repo} />
             </Suspense>
         </ScrollArea>
     );
@@ -74,6 +38,44 @@ function PullRequestListSkeleton() {
                         </Button>
                     </li>
                 ))}
+        </ul>
+    );
+}
+
+async function PullRequestListData({ repo }: { repo: string }) {
+    const prs = await fetchPullRequests(repo, "Guibi1");
+
+    if (prs.length === 0) {
+        return <div className="py-4 text-center text-muted-foreground">No pull requests found.</div>;
+    }
+
+    return (
+        <ul className="flex min-h-0 flex-col divide-y divide-muted">
+            {prs.map((pr) => (
+                <li key={pr.id}>
+                    <a
+                        href={pr.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between rounded-md p-2 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring"
+                    >
+                        <div className="flex flex-col px-2">
+                            <div>{pr.title}</div>
+
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                                <span>#{pr.number}</span>
+                                <span>•</span>
+                                <span>{pr.mergedAt ? "merged" : pr.closedAt ? "closed" : "opened"}</span>
+                                <TimeAgo date={pr.mergedAt ?? pr.closedAt ?? pr.openedAt} />
+                            </div>
+                        </div>
+
+                        <Button variant="ghost" size="icon" disabled>
+                            <ExternalLinkIcon />
+                        </Button>
+                    </a>
+                </li>
+            ))}
         </ul>
     );
 }

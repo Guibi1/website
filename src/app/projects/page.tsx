@@ -49,7 +49,7 @@ export default function Page() {
                                 {project.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="rounded-full bg-secondary px-2 py-1 font-medium text-secondary-foreground text-xs"
+                                        className="rounded-full bg-red px-2 py-1 font-medium text-primary-foreground text-xs dark:bg-secondary dark:text-secondary-foreground"
                                     >
                                         {tag}
                                     </span>

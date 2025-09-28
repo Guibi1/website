@@ -1,7 +1,9 @@
-import { GithubIcon } from "lucide-react";
+import { GithubIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import BlueSkyIcon from "./BlueSkyIcon";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { Button } from "./ui/button";
+import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 export default function Nav() {
     return (
@@ -10,7 +12,7 @@ export default function Nav() {
                 Guibi.dev
             </Link>
 
-            <div className="flex items-center gap-4">
+            <div className="hidden items-center gap-4 sm:flex">
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" asChild>
                         <Link href="/about" className="text-lg">
@@ -38,7 +40,55 @@ export default function Nav() {
                         </Link>
                     </Button>
                 </div>
+
+                <ThemeSwitcher variant="ghost" />
             </div>
+
+            <Popover modal>
+                <PopoverTrigger asChild className="sm:hidden">
+                    <Button variant="ghost">
+                        <MenuIcon />
+                    </Button>
+                </PopoverTrigger>
+
+                <PopoverContent hideWhenDetached className="flex flex-col gap-2">
+                    <PopoverClose asChild>
+                        <Button variant="secondary" asChild>
+                            <Link href="/about" className="text-lg">
+                                About me
+                            </Link>
+                        </Button>
+                    </PopoverClose>
+
+                    <PopoverClose asChild>
+                        <Button variant="secondary" asChild>
+                            <Link href="/projects" className="text-lg">
+                                My projects
+                            </Link>
+                        </Button>
+                    </PopoverClose>
+
+                    <div className="flex items-center justify-stretch gap-2">
+                        <PopoverClose asChild>
+                            <Button variant="secondary" asChild>
+                                <Link href="https://bsky.app/profile/guibi.dev" title="bluesky account" target="_blank">
+                                    <BlueSkyIcon />
+                                </Link>
+                            </Button>
+                        </PopoverClose>
+
+                        <PopoverClose asChild>
+                            <Button variant="secondary" asChild className="mr-auto">
+                                <Link href="https://github.com/Guibi1" title="github account" target="_blank">
+                                    <GithubIcon />
+                                </Link>
+                            </Button>
+                        </PopoverClose>
+
+                        <ThemeSwitcher variant="secondary" />
+                    </div>
+                </PopoverContent>
+            </Popover>
         </nav>
     );
 }
