@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PullRequestList from "@/components/PullRequestList";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
@@ -27,6 +27,19 @@ export default function Page() {
                     >
                         <CardHeader>
                             <CardTitle>{project.title}</CardTitle>
+
+                            <CardAction>
+                                <Button variant="outline" className="grow md:grow-0" asChild>
+                                    <Link
+                                        href={`https://github.com/${project.repo}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <GithubIcon />
+                                        Code
+                                    </Link>
+                                </Button>
+                            </CardAction>
                         </CardHeader>
 
                         <CardContent className="grow space-y-4">
@@ -56,19 +69,6 @@ export default function Page() {
                                 ))}
                             </div>
                         </CardContent>
-
-                        <CardFooter>
-                            <Button variant="outline" className="grow md:grow-0" asChild>
-                                <Link
-                                    href={`https://github.com/${project.repo}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <GithubIcon />
-                                    Code
-                                </Link>
-                            </Button>
-                        </CardFooter>
                     </Card>
                 ))}
             </div>
@@ -83,6 +83,12 @@ const projects: {
     repo: string;
     showPullRequests?: boolean;
 }[] = [
+    {
+        title: "Waystart",
+        description: "A start menu for Wayland-based window managers.",
+        tags: ["Linux", "Desktop App", "Rust"],
+        repo: "Guibi1/waystart",
+    },
     {
         title: "Maki",
         description: "A Bun-based React-19 metaframework for building typesafe and fast fullstack websites.",
