@@ -84,6 +84,12 @@ const projects: {
     showPullRequests?: boolean;
 }[] = [
     {
+        title: "Nylium",
+        description: "A fully featured GUI for Minecraft servers implemented in Rust.",
+        tags: ["Minecraft", "Desktop App", "Rust"],
+        repo: "Guibi1/nylium",
+    },
+    {
         title: "Waystart",
         description: "A start menu for Wayland-based window managers.",
         tags: ["Linux", "Desktop App", "Rust"],
@@ -106,7 +112,7 @@ const projects: {
         title: "Pumpkin",
         description:
             "A Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience.",
-        tags: ["Rust", "OSS", "Game Server"],
+        tags: ["Minecraft", "FOSS", "Rust"],
         repo: "Pumpkin-MC/Pumpkin",
         showPullRequests: true,
     },
