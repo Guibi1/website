@@ -1,5 +1,6 @@
 import { GithubIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
+
 import BlueSkyIcon from "./BlueSkyIcon";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Button } from "./ui/button";
@@ -7,7 +8,7 @@ import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "./ui/popo
 
 export default function Nav() {
     return (
-        <nav className="container flex animate-fade-in items-center justify-between gap-4 px-4 py-8 delay-100 duration-300 md:h-20">
+        <nav className="animate-fade-in container flex items-center justify-between gap-4 px-4 py-8 delay-100 duration-300 md:h-20">
             <Link href="/" className="text-xl">
                 Guibi.dev
             </Link>
@@ -29,13 +30,21 @@ export default function Nav() {
 
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" asChild>
-                        <Link href="https://bsky.app/profile/guibi.dev" title="bluesky account" target="_blank">
+                        <Link
+                            href="https://bsky.app/profile/guibi.dev"
+                            title="bluesky account"
+                            target="_blank"
+                        >
                             <BlueSkyIcon />
                         </Link>
                     </Button>
 
                     <Button variant="ghost" asChild>
-                        <Link href="https://github.com/Guibi1" title="github account" target="_blank">
+                        <Link
+                            href="https://github.com/Guibi1"
+                            title="github account"
+                            target="_blank"
+                        >
                             <GithubIcon />
                         </Link>
                     </Button>
@@ -71,7 +80,11 @@ export default function Nav() {
                     <div className="flex items-center justify-stretch gap-2">
                         <PopoverClose asChild>
                             <Button variant="secondary" asChild>
-                                <Link href="https://bsky.app/profile/guibi.dev" title="bluesky account" target="_blank">
+                                <Link
+                                    href="https://bsky.app/profile/guibi.dev"
+                                    title="bluesky account"
+                                    target="_blank"
+                                >
                                     <BlueSkyIcon />
                                 </Link>
                             </Button>
@@ -79,7 +92,11 @@ export default function Nav() {
 
                         <PopoverClose asChild>
                             <Button variant="secondary" asChild className="mr-auto">
-                                <Link href="https://github.com/Guibi1" title="github account" target="_blank">
+                                <Link
+                                    href="https://github.com/Guibi1"
+                                    title="github account"
+                                    target="_blank"
+                                >
                                     <GithubIcon />
                                 </Link>
                             </Button>

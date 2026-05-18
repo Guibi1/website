@@ -1,8 +1,16 @@
 import { GlobeIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
@@ -12,26 +20,30 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <main className="container px-4 py-8">
-            <header className="mb-12 animate-fade-in-up">
-                <h1 className="mb-2 font-bold text-4xl text-primary">About me</h1>
-                <p className="animate-fade-in text-muted-foreground text-xl delay-200">Once upon a time...</p>
+            <header className="animate-fade-in-up mb-12">
+                <h1 className="text-primary mb-2 text-4xl font-bold">About me</h1>
+                <p className="animate-fade-in text-muted-foreground text-xl delay-200">
+                    Once upon a time...
+                </p>
             </header>
 
             <section>
-                <h2 className="mb-4 animate-fade-in-up font-bold text-3xl text-primary delay-200">Languages</h2>
+                <h2 className="animate-fade-in-up text-primary mb-4 text-3xl font-bold delay-200">
+                    Languages
+                </h2>
 
                 <div className="mb-12 grid gap-3 gap-x-8 md:grid-cols-2 lg:gap-1">
                     {languages.map((lang, i) => (
                         <div
-                            className="flex animate-fade-in-up flex-col gap-1 lg:flex-row lg:items-center lg:gap-4"
+                            className="animate-fade-in-up flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-4"
                             style={{ animationDelay: `${250 + i * 25}ms` }}
                             key={lang.name}
                         >
                             <div className="w-20 lg:text-right">{lang.name}</div>
 
-                            <div className="relative h-2 grow rounded-md bg-muted">
+                            <div className="bg-muted relative h-2 grow rounded-md">
                                 <div
-                                    className="absolute inset-0 rounded-md bg-primary"
+                                    className="bg-primary absolute inset-0 rounded-md"
                                     style={{ width: `${lang.percent}%` }}
                                 />
                             </div>
@@ -41,12 +53,14 @@ export default function Page() {
             </section>
 
             <section>
-                <h2 className="mb-4 animate-fade-in-up font-bold text-3xl text-primary delay-500">Job experience</h2>
+                <h2 className="animate-fade-in-up text-primary mb-4 text-3xl font-bold delay-500">
+                    Job experience
+                </h2>
 
                 <div className="columns-xs gap-4">
                     {jobs.map((job, i) => (
                         <Card
-                            className="mb-4 animate-fade-in-up break-inside-avoid"
+                            className="animate-fade-in-up mb-4 break-inside-avoid"
                             style={{ animationDelay: `${(i + 6) * 100}ms` }}
                             key={job.description}
                         >
@@ -60,12 +74,20 @@ export default function Page() {
 
                                 <div className="flex items-center justify-between gap-2">
                                     <div>
-                                        <div className="leading-none tracking-tight">At {job.at}</div>
-                                        <div className="text-muted-foreground text-sm">{job.info}</div>
+                                        <div className="leading-none tracking-tight">
+                                            At {job.at}
+                                        </div>
+                                        <div className="text-muted-foreground text-sm">
+                                            {job.info}
+                                        </div>
                                     </div>
 
                                     <Button variant="ghost" size="icon" asChild>
-                                        <Link href={job.website} target="_blank" rel="noopener noreferrer">
+                                        <Link
+                                            href={job.website}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             <GlobeIcon />
                                         </Link>
                                     </Button>
@@ -79,7 +101,7 @@ export default function Page() {
                                     {job.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="rounded-full bg-red px-2 py-1 font-medium text-primary-foreground text-xs dark:bg-secondary dark:text-secondary-foreground"
+                                            className="bg-red text-primary-foreground dark:bg-secondary dark:text-secondary-foreground rounded-full px-2 py-1 text-xs font-medium"
                                         >
                                             {tag}
                                         </span>

@@ -1,5 +1,6 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { Suspense } from "react";
+
 import TimeAgo from "@/components/TimeAgo";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -18,8 +19,8 @@ export default function PullRequestList({ repo }: { repo: string }) {
 
 function PullRequestListSkeleton() {
     return (
-        <ul className="flex flex-col divide-y divide-muted overflow-hidden">
-            {new Array(7)
+        <ul className="divide-muted flex flex-col divide-y overflow-hidden">
+            {Array.from({ length: 7 })
                 .fill(0)
                 .map((_, i) => i)
                 .map((k) => (
@@ -46,26 +47,30 @@ async function PullRequestListData({ repo }: { repo: string }) {
     const prs = await fetchPullRequests(repo, "Guibi1");
 
     if (prs.length === 0) {
-        return <div className="py-4 text-center text-muted-foreground">No pull requests found.</div>;
+        return (
+            <div className="text-muted-foreground py-4 text-center">No pull requests found.</div>
+        );
     }
 
     return (
-        <ul className="flex min-h-0 flex-col divide-y divide-muted">
+        <ul className="divide-muted flex min-h-0 flex-col divide-y">
             {prs.map((pr) => (
                 <li key={pr.id}>
                     <a
                         href={pr.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between rounded-md p-2 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring"
+                        className="hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring flex items-center justify-between rounded-md p-2 transition-colors focus-visible:ring-1 focus-visible:outline-hidden"
                     >
                         <div className="flex flex-col px-2">
                             <div>{pr.title}</div>
 
-                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                            <div className="text-muted-foreground flex items-center gap-2 text-sm">
                                 <span>#{pr.number}</span>
                                 <span>•</span>
-                                <span>{pr.mergedAt ? "merged" : pr.closedAt ? "closed" : "opened"}</span>
+                                <span>
+                                    {pr.mergedAt ? "merged" : pr.closedAt ? "closed" : "opened"}
+                                </span>
                                 <TimeAgo date={pr.mergedAt ?? pr.closedAt ?? pr.openedAt} />
                             </div>
                         </div>

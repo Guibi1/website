@@ -1,6 +1,7 @@
-import { GithubIcon, GitPullRequestArrowIcon } from "lucide-react";
+import { GitPullRequestArrowIcon, GithubIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import PullRequestList from "@/components/PullRequestList";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,15 +14,17 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <main className="container px-4 py-8">
-            <header className="mb-12 animate-fade-in-up">
-                <h1 className="mb-2 font-bold text-4xl text-primary">My Coding Projects</h1>
-                <p className="animate-fade-in text-muted-foreground text-xl delay-200">Here's what I'm working on</p>
+            <header className="animate-fade-in-up mb-12">
+                <h1 className="text-primary mb-2 text-4xl font-bold">My Coding Projects</h1>
+                <p className="animate-fade-in text-muted-foreground text-xl delay-200">
+                    Here's what I'm working on
+                </p>
             </header>
 
             <div className="columns-xs gap-4">
                 {projects.map((project, i) => (
                     <Card
-                        className="mb-4 animate-fade-in-up break-inside-avoid"
+                        className="animate-fade-in-up mb-4 break-inside-avoid"
                         style={{ animationDelay: `${(i + 3) * 100}ms` }}
                         key={project.repo}
                     >
@@ -49,7 +52,7 @@ export default function Page() {
                                 <div className="space-y-2 pb-4">
                                     <Separator />
 
-                                    <div className="ml-2 inline-flex size-lg items-center gap-2">
+                                    <div className="size-lg ml-2 inline-flex items-center gap-2">
                                         <GitPullRequestArrowIcon size={16} />
                                         My Contributions
                                     </div>
@@ -62,7 +65,7 @@ export default function Page() {
                                 {project.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="rounded-full bg-red px-2 py-1 font-medium text-primary-foreground text-xs dark:bg-secondary dark:text-secondary-foreground"
+                                        className="bg-red text-primary-foreground dark:bg-secondary dark:text-secondary-foreground rounded-full px-2 py-1 text-xs font-medium"
                                     >
                                         {tag}
                                     </span>
@@ -97,7 +100,8 @@ const projects: {
     },
     {
         title: "Maki",
-        description: "A Bun-based React-19 metaframework for building typesafe and fast fullstack websites.",
+        description:
+            "A Bun-based React-19 metaframework for building typesafe and fast fullstack websites.",
         tags: ["React", "Server components", "TypeScript"],
         repo: "Guibi1/maki",
     },
@@ -130,7 +134,8 @@ const projects: {
     },
     {
         title: "Univox",
-        description: "A student-only website to share schedules between friends and sell used books.",
+        description:
+            "A student-only website to share schedules between friends and sell used books.",
         tags: ["SvelteKit", "PostgreSQL", "S3"],
         repo: "Guibi1/Univox",
     },

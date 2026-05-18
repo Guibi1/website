@@ -117,7 +117,12 @@
     }
 
     .radial-opacity-mask {
-        mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 80%);
+        mask-image: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 1) 40%,
+            rgba(0, 0, 0, 0.2) 70%,
+            rgba(0, 0, 0, 0) 80%
+        );
     }
 
     /* Page entrance animations */

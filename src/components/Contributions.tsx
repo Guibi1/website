@@ -1,5 +1,6 @@
 import { GithubIcon } from "lucide-react";
-import Calendar from "react-activity-calendar";
+import { ActivityCalendar } from "react-activity-calendar";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { fetchCalendarData } from "@/lib/utils";
 
@@ -15,8 +16,8 @@ export default async function Contributions() {
                 </CardTitle>
             </CardHeader>
 
-            <CardContent className="[&_rect]:!stroke-border/20 flex pb-8">
-                <Calendar
+            <CardContent className="[&_rect]:stroke-border/20! flex pb-8">
+                <ActivityCalendar
                     style={{ marginInline: "auto" }}
                     data={contributions}
                     colorScheme="dark"
